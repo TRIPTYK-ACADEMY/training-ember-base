@@ -1,0 +1,11 @@
+<div class="w-128">
+  {{#each this.model as |song|}}
+    <div class="flex justify-between">
+      <div>
+        {{song.title}} <span class="text-teal-200 text-sm">by {{song.band}}</span>
+      </div>  
+      <span>{{song.rating}}</span>
+    </div>
+  {{/each}}
+</div>
+{{outlet}}
