@@ -4,22 +4,6 @@ import { A } from '@ember/array';
 
 export default class SongsRoute extends Route {
   model(){
-    return A([
-      EmberObject.create({
-        title: "Numb",
-        band: "Linkin Park",
-        rating: 5
-      }),
-      EmberObject.create({
-        title: "Time",
-        band: "Pink Floyd",
-        rating: 4
-      }),
-      EmberObject.create({
-        title: "Karma Police",
-        band: "Radiohead",
-        rating: 2
-      })
-    ])
+    return this.store.findAll('song', { include: "band" })
   }
 }
