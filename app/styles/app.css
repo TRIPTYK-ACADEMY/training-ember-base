@@ -21,3 +21,23 @@ h3{
 a{
   @apply text-teal-300 no-underline font-semibold;
 }
+
+.btnIcon{
+  @apply mt-2 flex items-center;
+}
+
+.btnIcon svg{
+  @apply fill-current text-white w-6 pr-1;
+}
+
+.btnPrimary{
+  @apply bg-teal-500 p-2 rounded text-white;
+}
+
+.btnSecondary{
+  @apply bg-red-500 p-2 rounded text-white;
+}
+
+input{
+  @apply text-gray-800 px-2 py-1;
+}
