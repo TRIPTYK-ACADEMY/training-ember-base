@@ -26,6 +26,13 @@ export default class BandsBandSongsController extends Controller {
   }
 
   @action
+  updateRating(params){
+    let {song, rating} = params;
+    song.set('rating', rating);
+    song.save();
+  }
+
+  @action
   async addSong(e){
     e.preventDefault();
     let record = await this.store.createRecord('song', {
