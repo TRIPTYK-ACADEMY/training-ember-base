@@ -5,7 +5,8 @@
       <div>
         {{song.title}} <span class="text-teal-200 text-sm">by {{get song.band "name"}}</span>
       </div>  
-      <span>{{song.rating}}</span>
+      {{!-- <span>{{song.rating}}</span> --}}
+      <StarRating @rating={{song.rating}} @item={{song}} />
     </div>
   {{/each}}
   {{#if this.isAddingASong}}
