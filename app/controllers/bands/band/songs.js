@@ -19,6 +19,11 @@ export default class BandsBandSongsController extends Controller {
   addingSong(){
     this.isAddingASong = true;
   }
+  @action
+  setRating(rating, song){
+    song.set('rating', rating);
+    song.save();
+  }
 
   @action
   async addSong(e){

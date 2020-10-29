@@ -5,9 +5,23 @@
       <div>
         {{song.title}} <span class="text-teal-200 text-sm">by {{get song.band "name"}}</span>
       </div>  
-      {{!-- <span>{{song.rating}}</span> --}}
       <div class="flex">
-        <StarRating @rating={{song.rating}} @item={{song}} />
+        {{!-- <StarRating @rating={{song.rating}} @item={{song}} /> --}}
+        <StarRating @rating={{song.rating}} @item={{song}} as | stars |>
+          {{#each stars as |star|}}
+            <button type="button"  {{on "click" (fn this.setRating star.rating song)}}>
+              {{#if star.isFull}}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-4 fill-current text-blue-400 mx-1">
+                  <path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/>
+                </svg>
+              {{else}}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-4 fill-current text-white mx-1">
+                  <path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/>
+                </svg>
+              {{/if}}
+            </button>
+          {{/each}}
+        </StarRating>
       </div>
     </div>
   {{/each}}
