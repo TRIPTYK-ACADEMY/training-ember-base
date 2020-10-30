@@ -5,9 +5,17 @@ import { inject as service } from '@ember/service';
 export default class SongsController extends Controller {
   @service favoritesSong;
 
+  get favorites(){
+    return this.favoritesSong.items
+  }
+
   @action
-  addFavorite(song){
-    this.favoritesSong.add(song);
+  toggleFavorite(song){
+    if(this.favoritesSong.items.includes(song)){
+      this.favoritesSong.remove(song)
+    } else {
+      this.favoritesSong.add(song);
+    }
   }
 
   @action
