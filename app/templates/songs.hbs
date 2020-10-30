@@ -1,5 +1,13 @@
 <div class="w-128">
-  {{#each this.model as |song|}}
+    <div class="ml-16 mb-2 flex justify-between">
+      <LinkTo @route="songs" class="text-sm text-indigo-400 flex items-center" @query={{hash name=this.direction}}>
+        Nom du groupe
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class=" ml-1 w-3 fill-current text-white {{if (eq this.direction "desc") "transform rotate-180"}}">
+          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+        </svg>
+      </LinkTo>
+    </div>
+  {{#each this.filteredSong as |song|}}
     <div class="flex justify-between">
       <div class="flex items-center">
         <button type="button" {{on "click" (fn this.deleteSong song)}}>
