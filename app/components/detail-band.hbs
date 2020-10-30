@@ -1,1 +1,23 @@
-{{@description}}
+{{#if this.isEditing}}
+  <div class="flex flex-col">
+    <Textarea class="text-black" @rows="4" @value={{@description}} />
+    <button class="btnPrimary self-end mt-4"
+      type="button"
+      {{on "click" (fn this.editBandDetail)}}
+    >
+      Sauvegarder
+    </button>
+  </div>
+{{else}}
+  <div class="flex flex-col">
+    <p>
+      {{@description}}
+    </p>
+    <button class="btnPrimary self-end mt-4"
+      type="button"
+      {{on "click" (fn this.isEditingBandDetail)}}
+    >
+      Editer
+    </button>
+  </div>
+{{/if}}
