@@ -10,11 +10,12 @@ export default class SongsRoute extends Route {
     }
   }
   
-  model(params){
-    const songs = this.store.findAll('song', { include: "band" })
+  async model(params){
+    const songs = await this.store.findAll('song', { include: "band" })
     return {
-      query: params.name,
-      songs
+      queryName: params.name,
+      queryRating: params.rating,
+      songs: songs
     }
   }
 }
