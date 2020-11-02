@@ -3,6 +3,6 @@ import { reject } from 'rsvp';
 
 export default class BandsBandSongsRoute extends Route {
   model(){
-    return reject(this.modelFor('bands.band'));
+    return this.modelFor('bands.band');
   }
 }
